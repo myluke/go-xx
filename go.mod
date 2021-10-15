@@ -1,3 +1,3 @@
-module luke/main_test
+module luke/go_test
 
 go 1.16
