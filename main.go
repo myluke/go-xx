@@ -3,51 +3,45 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"time"
 )
 
 func main() {
 
-	fmt.Println("Hi, Luke")
-
-	var defaultInt int
+	fmt.Println("Hi,Luke")
 	var defaultFloat32 float32
-	var defaultFloat64 float64
-	var defaultBool bool
+	var defaultInt int64
 	var defaultString string
-	println(defaultInt, defaultBool, defaultFloat32, defaultFloat64, defaultString)
-
-	i, _ := strconv.Atoi("-42")
-	s := strconv.Itoa(-42)
-	println(i, s)
+	// 变量赋值
+	defaultString = "Hi,Luke"
+	// 打印
+	fmt.Printf("defaultFloat32:%+v,defaultInt:%+v,defaultString:%+v", defaultFloat32, defaultInt, defaultString)
 	// 计算
-	number1 := "2"
-	number2 := "3"
-	println("Sum:", sum(number1, number2))
-	// defer 关键字
-	name := "go"
-	defer printName(name) // output: go
-	name = "python"
-	defer printName(name) // output: python
-	name = "java"
-	printName(name) // output: java
-	deferTestA()
+	num1 := "2"
+	num2 := "3"
+	fmt.Println("sum:", sum(num1, num2))
+	var blockType string
+	fmt.Println(len(blockType))
+	// 时间和日期操作
+	t := time.Now().UTC()
+	fmt.Println(t)
+	s := t.Format("20060102")
+	fmt.Println(t, "=>", s)
+	fmt.Printf("%4d-%02d-%02d %02d:%02d:%02d\n", t.Year(), t.Month(), t.Day(), t.Hour(), t.Minute(), t.Second())
+	fmt.Println("休息2秒")
+	time.Sleep(2 * time.Second)
+	t = time.Now().UTC()
+	fmt.Printf("%4d-%02d-%02d %02d:%02d:%02d\n", t.Year(), t.Month(), t.Day(), t.Hour(), t.Minute(), t.Second())
+	// 增加30天
+	m := time.Now().AddDate(0, 0, 30)
+	fmt.Printf("m:%s", m)
+
 }
 
-func deferTestA() {
-	i := 0
-
-	defer fmt.Println(i) //因为i=0，所以此时就明确告诉golang在程序退出时，执行输出0的操作
-	i++
-	defer fmt.Println(i) //输出1，因为i此时就是1
-	return
-}
-
-func printName(name string) {
-	fmt.Println(name)
-}
-
+// 定义函数
 func sum(a string, b string) int {
-	int_a, _ := strconv.Atoi(a)
-	int_b, _ := strconv.Atoi(b)
-	return int_a + int_b
+	// 字符串转整型
+	intA, _ := strconv.Atoi(a)
+	intB, _ := strconv.Atoi(b)
+	return intA + intB
 }
