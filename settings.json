@@ -1,0 +1,25 @@
+{
+    "go.inferGopath": false,
+    "go.useLanguageServer": true,
+    "[go.mod]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+    },
+    "gopls": {
+        "completeUnimported": true,
+        "usePlaceholders": true,
+        "completionDocumentation": true,
+        "hoverKind": "SynopsisDocumentation" // No/Synopsis/Full, default Synopsis
+    },
+    "go.autocompleteUnimportedPackages": true,
+    "go.docsTool": "gogetdoc",
+    "go.formatTool": "goimports",
+    "go.gotoSymbol.includeImports": false,
+    "go.gotoSymbol.includeGoroot": false,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+    "go.lintOnSave": "file",
+    "go.buildOnSave": "off",
+}
